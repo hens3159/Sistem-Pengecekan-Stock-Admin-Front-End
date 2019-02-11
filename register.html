@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title></title>
+
+    <!-- Css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style-admin.css">
+
+     <!-- JS -->
+     <script src="js/bootstrap/jquery.min.js"></script>
+     <script src="js/bootstrap/bootstrap.min.js"></script>
+     <script src="js/bootstrap/popper.min.js"></script>
+     <script src="js/form-validator/jquery.form-validator.min.js"></script>
+
+     <!--font-->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+<style>
+body{
+}
+</style>
+
+  </head>
+
+
+  <body>
+
+    <div class="container-fluid">
+      <div class="row" >
+
+        <div class="col-12 col-xsl-6  col-lg-6 col-sm-12 col-md-12 side-left" >
+          <div class="d-flex flex-column  justify-content-center" style="height:668px;">
+            <h4 class=" h4 text-center text-white" style="margin-bottom: 32px">Daftar </h4>
+                 <img src="gambar/icon_app.svg" class="mx-auto d-block img-fluid" width="224" height="224" alt="logo">
+                 <h5 class="text-center text-white" style="margin-top:42px;">Portable Stock</h5>
+
+          <footer class="login-register" style="padding-bottom:-500px; margin-bottom: -80px; margin-top:50px;">
+              <p class="text-white">PT Triputra Agro Persada. All Right Reserved</p>
+          </footer>
+        </div>
+
+      </div>
+
+
+
+
+        <div class="col-12 col-xsl-6 col-md-12 col-lg-6 col-sm-12 side-right" style="background:white;">
+
+          <div class="d-flex flex-column  justify-content-center" style="height:668px;">
+
+
+            <div class="title-register">
+            <p class="title-register-1">Silakan isi data-data dibawah ini</p>
+            <p class="title-register-2">Pastikan anda mengisi data dengan benar</p>
+          </div>
+
+
+          <div class="container" style="padding-right:16px; padding-left:16px;">
+            <div class="row justify-content-center row-center">
+
+              <form action="" class="form-register" id="registration-form">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="name" placeholder="Nama Lengkap" name="nama" data-validation="required"
+                  data-validation-error-msg-required="Wajib diisi">
+                </div>
+
+                <div class="form-group">
+                  <input type="text" class="form-control" id="username" placeholder="Buat Username" name="username" data-validation="required"
+                  data-validation-error-msg-required="Wajib diisi">
+                </div>
+
+                <div class="form-group">
+                 <input type="password" class="form-control" id="password" placeholder="Buat Password" name="password">
+               </div>
+
+               <div class="form-group">
+                <input type="password" class="form-control" id="repeat" placeholder="Konfirmasi Password" name="repeat" data-validation="confirmation"
+                data-validation-confirm="password"  data-validation-error-msg="password tidak sama. Silahkan masukan password yang sama">
+              </div>
+
+              <div class="form-group" style="padding: 88px 14px 25px 14px;">
+                <input type="submit" class="btn btn-success text-white btn-block" id="myBtn" value="Daftarkan">
+             </div>
+
+
+              </form>
+            </div>
+        </div>
+</div>
+
+</div>
+</div>
+
+
+
+
+<script type="text/javascript">
+
+$.validate({
+  modules : 'location, date, security, ',
+  onModulesLoaded : function() {
+ $("input[type=submit]").attr("disabled", "disabled");
+
+  },
+  onError : function($form) {
+     alert('Validation of form '+$form.attr('id')+' failed!');
+   },
+  onSuccess : function($form) {
+    //    alert('The form '+$form.attr('id')+' is valid!');
+        return false; // Will stop the submission of the form
+      },
+    onElementValidate : function(valid, $el, $form, errorMess) {
+    //  console.log('Input ' +$el.attr('name')+ ' is ' + ( valid ? 'Henhen':'NOT VALID') );
+
+
+      var name = $('#name').val().length
+      var username = $('#username').val().length
+      var password_length = $('#password').val().length
+      var repeat_length = $('#repeat').val().length
+      var password = $.trim($('#password').val())
+      var repeat = $.trim($('#repeat').val())
+
+      if(name !=0 && username !=0 && password_length !=0 && repeat_length !=0  ){
+        if (password == repeat){
+         $("input[type=submit]").removeAttr("disabled");
+
+         $("#myBtn").click(function(){
+           $("#myModal").modal();
+
+           $("#ok").click(function(){
+             window.location = "dashboard_stock.html"
+           })
+
+
+         })
+
+     }else {
+       $("input[type=submit]").attr("disabled", "disabled");
+     }
+
+      }else {
+        $("input[type=submit]").attr("disabled", "disabled");
+      }
+},
+
+});
+
+
+</script>
+
+
+  </body>
+</html>

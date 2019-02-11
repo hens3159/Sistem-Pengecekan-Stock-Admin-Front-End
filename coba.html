@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title></title>
+    <script src='https://code.jquery.com/jquery-1.12.3.js'></script>
+       <script src='https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js'></script>
+       <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js" charset="utf-8"></script>
+       <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/dataTables.buttons.min.js"></script>
+
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+           <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
+             <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.bootstrap.min.css">
+             <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">
+             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+
+
+             <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+             <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+             <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  </head>
+
+<style>
+.input-group-addon {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #fff;
+    border: 0px solid #ccc;
+    border-radius: 4px;
+}
+
+.koko{
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.kaka{
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+
+}
+
+.kiki{
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+
+}
+
+</style>
+
+<body>
+<div class="container">
+  <div class="row">
+
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon koko"><i class="fa fa-calendar" style="font-size:16px"></i></span>
+      <span class="input-group-addon kaka">Period</span>
+      <input type="text" id="demo" class="form-control" name="daterange" style="height: 49px;" />
+      <span class="input-group-addon kiki"><i class="fa fa-angle-down" style="font-size:16px"></i></span>
+    </div>
+
+
+
+
+
+
+
+</div>
+</div>
+</body>
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+var starDate
+var endDate
+
+koko = $('#demo').daterangepicker({
+    "showDropdowns": true,
+    "autoApply": true,
+    "opens": "center",
+    'startdate': moment(),
+    'enddate' :moment()
+}, function(start, end, label) {
+  starDate = new Date(start.format('YYYY-MM-DD'))
+  endDate = new Date(end.format('YYYY-MM-DD'))
+
+});
+
+
+
+})
+
+</script>
+
+
+  </body>
+</html>
