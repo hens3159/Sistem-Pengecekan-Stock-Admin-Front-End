@@ -60,7 +60,7 @@ body{
           <div class="container" style="padding-right:16px; padding-left:16px;">
             <div class="row justify-content-center row-center">
 
-              <form action="" class="form-register" id="registration-form">
+              <form action="dashboard_stock.html" class="form-register" id="registration-form">
                 <div class="form-group">
                   <input type="text" class="form-control" id="name" placeholder="Nama Lengkap" name="nama" data-validation="required"
                   data-validation-error-msg-required="Wajib diisi">
@@ -127,13 +127,7 @@ $.validate({
          $("input[type=submit]").removeAttr("disabled");
 
          $("#myBtn").click(function(){
-           $("#myModal").modal();
-
-           $("#ok").click(function(){
              window.location = "dashboard_stock.html"
-           })
-
-
          })
 
      }else {
