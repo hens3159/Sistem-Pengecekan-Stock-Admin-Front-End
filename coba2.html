@@ -18,6 +18,9 @@
              <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.bootstrap.min.css">
              <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">
              <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
 
   <style>
 
@@ -77,6 +80,26 @@
     min-height: calc(100% - (.5rem * 2));
 }
 
+.inner-addon {
+    position: relative;
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+
  </style>
 
   </head>
@@ -84,7 +107,13 @@
 
 <body>
 
-
+  <div class="form-group has-feedback">
+      <label class="control-label">Username</label>
+      <i class="fa fa-calendar" style="font-size:16px"></i></span>
+      <span class="">Period</span>
+      <input type="text" class="form-control" placeholder="Username" />
+      <i class="fa fa-angle-down form-control-feedback"></i>
+  </div>
 
   <!-- Button trigger modal -->
 
