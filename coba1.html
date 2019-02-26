@@ -182,7 +182,34 @@ table.dataTable.no-footer{
 <script type="text/javascript">
 
 $(document).ready(function() {
-  var tabel = $('#example').DataTable();
+  var table = $('#example').DataTable({
+    columnDefs: [
+           { type: 'date-eu', targets: 0,
+           render: function ( data, type, row ) {
+                // If display or filter data is requested, format the date
+                if ( type === 'display' || type === 'filter' ) {
+                    var rowvalue = row["EventDate"];
+                    var rowvalueallday = row["AllDayEvent"];
+                            if (rowvalueallday == 0) {
+                             return (moment(data).format("ddd DD/MM/YYYY (HH:mm)"));
+                            } else {
+                             return (moment(data).format("DD/MM/YYYY"));
+                            }
+                }
+                // Otherwise the data type requested (`type`) is type detection or
+                // sorting data, for which we want to use the raw date value, so just return
+                // that, unaltered
+                return data;
+                }
+           }
+         ],
+
+
+
+  });
+
+var startdate
+var enddate
 
 $('#demo').daterangepicker({
       "showDropdowns": true,
@@ -191,21 +218,23 @@ $('#demo').daterangepicker({
       "endDate": "02/10/2018",
       "opens": "center"
   }, function(start, end, label) {
-    date1 = new Date(start.format('YYYY-MM-DD')).getTime()
-    date2 = new Date(end.format('YYYY-MM-DD')).getTime()
+    startdate = new Date(start.format('YYYY-MM-DD')).getTime()
+    enddate = new Date(end.format('YYYY-MM-DD')).getTime()
 })
 
-koko = $("#demo").datepicker({ dateFormat: 'dd,MM,yyyy' }).val();
-console.log(koko)
+$('#demo').on('apply.daterangepicker', function(ev, picker) {
+startdate=picker.startDate.format('YYYY-MM-DD');
+enddate=picker.endDate.format('YYYY-MM-DD');
+table.draw();
+});
+
+
 
 $.fn.dataTable.ext.search.push(
     function( settings, data, dataIndex ) {
-
-
-
-        var min = date1;
-        var max = date2;
-        time = new Date(data[0])
+        var min = new Date (startdate).getTime();
+        var max = new Date (enddate).getTime();
+        time = new Date(data[0]).getTime()
 
         if (typeof time == 'undefined') {
              time = new Date(Data[0]).getTime();
@@ -229,9 +258,6 @@ $.fn.dataTable.ext.search.push(
 
 
 
-$('#min,#max').keyup( function() {
-    table.draw();
-} );
 
 
 

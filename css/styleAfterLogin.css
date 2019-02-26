@@ -223,3 +223,32 @@ color:black;
   align-items: center;
   min-height: calc(100% - (.5rem * 2));
 }
+
+.calender-group{
+  position: relative;
+  font-size: 14px;
+  height: 40px;
+}
+
+.calender-right{
+  position: absolute;
+  right:20px;
+  top:15px;
+  pointer-events: none;
+
+}
+
+.calender-left{
+  position: absolute;
+  left:20px;
+  top:15px;
+  pointer-events: none;
+
+}
+
+.calender-period{
+  position: absolute;
+  left:45px;
+  top:15px;
+  pointer-events: none;
+}
